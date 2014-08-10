@@ -1,4 +1,5 @@
 source("GetData.R")
+df <- GetPowerConsumptionData()
 png(filename="plot4.png", width=480, height=480, units="px")
 par(mfrow=c(2,2))
 plot(df$newcol,df$Global_active_power,pch='.',ylab="Global Active Power(kilowatts)", xlab="",main="")
