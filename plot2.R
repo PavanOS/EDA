@@ -1,0 +1,5 @@
+source("GetData.R")
+png(filename="plot2.png", width=480, height=480, units="px")
+plot(df$newcol,df$Global_active_power,pch='.',ylab="Global Active Power (kilowatts)",xlab="", main="")
+lines(df$newcol,df$Global_active_power)
+dev.off()

@@ -1,0 +1,23 @@
+source("GetData.R")
+png(filename="plot4.png", width=480, height=480, units="px")
+par(mfrow=c(2,2))
+plot(df$newcol,df$Global_active_power,pch='.',ylab="Global Active Power(kilowatts)", xlab="",main="")
+lines(df$newcol,df$Global_active_power)
+
+plot(df$newcol,df$Voltage,pch='.',ylab="Voltage", xlab="datetime",main="")
+lines(df$newcol,df$Voltage)
+
+plot(df$newcol,df$Sub_metering_1,pch='.',ylab="Energy sub metering",xlab="",ylim=range(df$Sub_metering_1),main="")
+lines(df$newcol,df$Sub_metering_1)
+par(new=T)
+plot(df$newcol,df$Sub_metering_2,pch='.',axes=FALSE,ylab="",xlab="",ylim=range(df$Sub_metering_1),col='red',main="")
+lines(df$newcol,df$Sub_metering_2,col='red')
+par(new=T)
+plot(df$newcol,df$Sub_metering_3,pch='.',axes=FALSE,ylab="",xlab="",ylim=range(df$Sub_metering_1),col='blue',main="")
+lines(df$newcol,df$Sub_metering_3,col='blue')
+legend('topright',legend=c("Sub metering 1","Sub metering 2","Sub metering 3"), col=c("black","red","blue"),lwd=2,bty="n")
+par(new=F)
+
+plot(df$newcol,df$Global_reactive_power,pch='.',ylab="Global_reactive_power",xlab="datetime",main="")
+lines(df$newcol,df$Global_reactive_power)
+dev.off()
